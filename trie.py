@@ -9,11 +9,7 @@ class TrieNode:
   key = None
   isEndOfWord = False
   repeat = None
-    
-class repeatNode:
-  repeted = None
-  document = None
-  nextNode = None
+
     
 #Delete from the word the characters that we don´t need
 def deleteChar(element):
@@ -32,7 +28,7 @@ def deleteChar(element):
   return newElement
 
 #Insert new elements in the trie
-def insert(T,element):
+def insert(T,element,document):
     #Verify if the root exist
     if T.root == None: T.root = TrieNode()
     Node = T.root
@@ -72,7 +68,19 @@ def insert(T,element):
                 Node = Tnode
                 height = height + 1
                 
-    #Assign the end of the word and the times that word is repeted in the documents
+    #Assign the end of the word
     Node.isEndOfWord = True
+    #assign the repetition of the word
+    NodeLista = Node.repeat.head
+    while NodeLista != None:
+      if NodeLista.document == document: 
+        NodeLista.repeat += 1
+        return
+      else: NodeLista = NodeLista.nextNode
     Node.repeat = linkedlist.LinkedList()
-    linkedlist.add(Node.repeat,)
+    linkedlist.add(Node.repeat,1,document)
+        
+         
+        
+      
+    
