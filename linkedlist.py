@@ -1,4 +1,3 @@
-import dictionary
 
 class LinkedList:
     head=None
