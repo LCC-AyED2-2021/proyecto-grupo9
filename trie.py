@@ -21,8 +21,8 @@ def deleteChar(element):
       #Lower case
       elif ord(element[x]) >= 97 and ord(element[x]) <= 122:
         newElement = newElement + element[x]
-      #Apostrophe
-      elif ord(element[x]) == 39:
+      #Apostrophe and dash
+      elif ord(element[x]) == 39 or ord(element[x] == 45):
         newElement = newElement + element[x]
      
   return newElement
@@ -71,10 +71,11 @@ def insert(T,element,document):
     #Assign the end of the word
     Node.isEndOfWord = True
     #assign the repetition of the word
-    NodeLista = Node.repeat.head
+    if Node.repeat != None: NodeLista = Node.repeat.head
+    else: NodeLista = None
     while NodeLista != None:
       if NodeLista.document == document: 
-        NodeLista.repeat += 1
+        NodeLista.value += 1
         return
       else: NodeLista = NodeLista.nextNode
     Node.repeat = linkedlist.LinkedList()
