@@ -22,3 +22,18 @@ def add(L, element, document):
         newNode.document = document
         L.head = newNode
         return L
+   
+#Agrega un nodo al fina de la lista
+def addFinal(L,element):
+    if element == None or L == None: 
+        print("No se recibio nigun elemento o lista")
+        return 
+    newNode = Node()
+    newNode.value = element
+    if L.head == None: 
+        L.head = newNode
+    else:  
+        Recorrido = L.head
+        while Recorrido.nextNode != None:
+            Recorrido = Recorrido.nextNode
+        Recorrido.nextNode = newNode
