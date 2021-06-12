@@ -1,4 +1,4 @@
-
+import linkedlist
 
 class Trie:
   root = None
