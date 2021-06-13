@@ -1,12 +1,10 @@
 class LinkedList:
     head=None
-
 class Node: 
     nextNode = None
     value = None
     document = None
     
-
 #Input: Variable tipo linkelist y un value
 #Output: TAD lista
 def add(L, element, document):
@@ -36,10 +34,7 @@ def addFinal(L,element):
             Recorrido = Recorrido.nextNode
         Recorrido.nextNode = newNode
         
-
-#ESTE ALGORITMO DE ORDENAMIENTO FUNCIONA (NO RECUERDO COMO) LO PUSE PARA VER SI REALMENTE FUNCIONA LA IMPLEMENTACION 
-#DESPUES CAMBIENLO SI TIENEN UNO QUE RECUERDEN COMO FUNCIONA 
-
+# Lenght solo calcula cuantos elementos tiene una linked list
 def length (L): #O(f)=n
 	currentnode=L.head
 	cont=0
@@ -50,7 +45,7 @@ def length (L): #O(f)=n
 
 
 """   merge_sort  """
-
+# algoritmo de ordenamiento para que Las listas esten ordenadas de mayor a menor
 def Mergesort(L):
 	left = LinkedList()
 	right = LinkedList()
@@ -140,4 +135,4 @@ def merge(left, right):
 			right.head=None
 			right.head= a
 			currentresult= currentresult.nextNode
-	return (result)
+	return result
