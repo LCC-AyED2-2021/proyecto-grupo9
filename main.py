@@ -3,7 +3,7 @@ import algo1
 #este codigo lo escribi para poder probar  como funciona 
 """create Tarda mas de 5 M en ejecutarse con los 
 documentos dados por los profes(cambiar el path)"""
-B=personal_library.create('C:\\Users\Fede\OneDrive\Escritorio\librery')
+B=personal_library.create('C:\\your path')
 
 
 end = False
