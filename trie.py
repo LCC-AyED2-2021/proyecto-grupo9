@@ -1,5 +1,5 @@
-
-
+import linkedlist
+ 
 class Trie:
   root = None
 
@@ -15,15 +15,16 @@ class TrieNode:
 def deleteChar(element):
   newElement = ""
   for x in range(0,len(element)):
+    print (element[x], ord(element[x]))  # Eliminar (sirve para saber si la maquina sigue andando)
     #Capital letters
     if ord(element[x]) >= 65 and ord(element[x]) <= 90:
       newElement = newElement + element[x]
       #Lower case
-      elif ord(element[x]) >= 97 and ord(element[x]) <= 122:
-        newElement = newElement + element[x]
-      #Apostrophe
-      elif ord(element[x]) == 39:
-        newElement = newElement + element[x]
+    elif ord(element[x]) >= 97 and ord(element[x]) <= 122:
+      newElement = newElement + element[x]
+      #Apostrophe and dash
+    elif ord(element[x]) == 39 or ord(element[x]) == 45:
+      newElement = newElement + element[x]
      
   return newElement
 
@@ -71,16 +72,38 @@ def insert(T,element,document):
     #Assign the end of the word
     Node.isEndOfWord = True
     #assign the repetition of the word
-    NodeLista = Node.repeat.head
+    if Node.repeat != None: NodeLista = Node.repeat.head
+    else: NodeLista = None
     while NodeLista != None:
       if NodeLista.document == document: 
-        NodeLista.repeat += 1
+        NodeLista.value += 1
         return
       else: NodeLista = NodeLista.nextNode
     Node.repeat = linkedlist.LinkedList()
     linkedlist.add(Node.repeat,1,document)
-        
-         
-        
-      
     
+#----------------------------------------------------------
+#agregado necesita ser arrreglado y revisado  
+    
+def search(T,element):
+  Node = T.root
+  height = 0
+  element = deleteChar(element)
+  Length = len(element)
+  while height != Length:
+      if Node == None:
+        return None   
+      else:
+        if Node.children == None:
+          return None
+        Level = Node.children
+        Node = Node.children.head
+        while Node.value.key != element[height] and Node.nextNode != None:
+          Node = Node.nextNode               
+          if Node.value.key == element[height]:
+            Node = Node.value
+            height = height + 1                
+          else:
+            return None
+          
+  return Node.repeat              
