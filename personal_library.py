@@ -33,7 +33,7 @@ def llenarTrie(T,Carpeta):
                
 def search (T,Key_word):
   L=None
-  if T == None: # 1ro comprueva que el trie no este vacio 
+  if T == None: # 1ro comprueba que el trie no este vacio 
     print ('Error trie vaccio')
     return
   start=0
