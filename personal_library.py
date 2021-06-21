@@ -22,15 +22,15 @@ def llenarTrie(T,Carpeta):
           start = 0
           #Recorremos todas las palabras dentro de la linea y las insertamos en el trie
           for z in range(len(Line)):
-            if Line[z] == " " or z == len(Line):
+            if Line[z] == " " or z == len(Line)-1:
+              name_document= Docs[x]
               Word = algo1.substr(Line,start,z)
               start =  z + 1
-              trie.insert(T,Word,Doc)
+              trie.insert(T,Word,name_document)
   return T            
 
-#----------------------------------------------------------
-#agregado necesita ser arrreglado y revisado
-               
+
+#Busca en la key_word en los documentos               
 def search (T,Key_word):
   L=None
   if T == None: # 1ro comprueba que el trie no este vacio 
@@ -39,12 +39,12 @@ def search (T,Key_word):
   start=0
   if Key_word == '' :
       return None
-  L = trie.search(T,Key_word) 
+  L = trie.search(T,Key_word) #busca  en el Trie y retorna una lista con el Nombre del documento y la cantidad de palabras almacenadas
   if L == None:              
     print ('"no document found"')
   else:
-    L=linkedlist.Mergesort(L)
+    L=linkedlist.Mergesort(L) # ordena la lista de mayor a menor la cantidad de palabras encontradas 
     currentnode = L.head 
-    while currentnode != currentnode.nextNode:
+    while currentnode != None : # imprime  la lista 
       print (currentnode.document,' ; ',currentnode.value)
-         
+      currentnode = currentnode.nextNode
