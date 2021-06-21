@@ -34,7 +34,7 @@ def addFinal(L,element):
             Recorrido = Recorrido.nextNode
         Recorrido.nextNode = newNode
         
-# Lenght solo calcula cuantos elementos tiene una linked list
+# Lenght solo cuenta cuantos elementos tiene una linked list
 def length (L): #O(f)=n
 	currentnode=L.head
 	cont=0
@@ -51,25 +51,30 @@ def Mergesort(L):
 	right = LinkedList()
 	result = LinkedList()
 	longitud = length(L)
+	#si la lista tiene una longitud igual o menor a 1 No es necesario ordenarla
 	if longitud <= 1:
 		return (L)
 	else:
 		mitad = longitud // 2
 		cont=0
 		currentnode=L.head
+		#se recorre loda la lista partiendola a la mita (left / right)
 		while currentnode != None:
 			if cont < mitad:
-				add(left,currentnode.value)
+				add(left,currentnode.value,currentnode.document)
 			else:
-				add(right,currentnode.value)
+				add(right,currentnode.value,currentnode.document)
 			cont = cont +1
 			currentnode= currentnode.nextNode
+		#se parte en 2 hasta que quede un solo nodo en cada left y right
 		left = Mergesort(left)
 		right = Mergesort(right)
+		# la siguientes lineas de codigo evitan que se avance si no se tiene un left y un right
 		if left == None:
 			return(right)
 		if right == None:
 			return(left)
+		# cuando tenemos un right y un left los unimos si y solo si left y right estan ordenados
 		currentleft=left.head
 		if left.head != None and right.head != None:
 			while currentleft.nextNode != None:
@@ -77,6 +82,7 @@ def Mergesort(L):
 			if currentleft.value >= right.head.value:
 				currentleft.nextNode= right.head
 				return (left)
+		#si left y right no estan ordenados se utiliza merge para ordenarlos
 		result = merge(left, right)
 		return (result)
 
@@ -84,6 +90,7 @@ def merge(left, right):
 	result=LinkedList()
 	currentresult = Node()
 	currentresult = result.head
+	#aqui se eliminan los elementos de las listas left y right  y se colocan de forma ordenada en la lista result
 	while length(left)> 0 or length(right) > 0:
 		if left.head != None and right.head != None:
 			if left.head.value >= right.head.value:
