@@ -70,15 +70,17 @@ def insert(T,element,document):
     #Assign the end of the word
     Node.isEndOfWord = True
     #assign the repetition of the word
-    if Node.repeat != None: NodeLista = Node.repeat.head
-    else: NodeLista = None
-    while NodeLista != None:
-        if NodeLista.document == document: 
-            NodeLista.value += 1
-            return
-        else: NodeLista = NodeLista.nextNode
-    Node.repeat = linkedlist.LinkedList()
-    linkedlist.add(Node.repeat,1,document)
+    if Node.repeat != None: #si la lista No esta vacia se recorre la lista buscando el Nombre del documento actual
+        nodeLista = Node.repeat.head
+        while NodeLista != None:
+            if NodeLista.document == document: #si se encuentra se le suma 1 al campo value
+                NodeLista.value += 1
+                return
+            else: NodeLista = NodeLista.nextNode
+        linkedlist.add(Node.repeat,1,document) # si no se agrega el documento
+    else: NodeLista = None # si la lista esta vacia solo se le agrega el nombre del documento 
+        Node.repeat = linkedlist.LinkedList()
+        linkedlist.add(Node.repeat,1,document)
     
 
 #Search elements in the trie.
@@ -86,7 +88,7 @@ def search(T,element):
     #Verify if the root exist.
     if T.root == None:
         return None
-    node = T.root.value.children
+    node = T.root.children
     element = deleteChar(element)
     for height in range(0,len(element)):
         #Verify if the linkedList exist.
