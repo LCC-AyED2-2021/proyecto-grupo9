@@ -13,6 +13,9 @@ class TrieNode:
 def deleteChar(element):
     newElement = ""
     for x in range(0,len(element)):
+        #Numbers
+        if ord(element[x]) >= 48 and ord(element[x]) <= 57:
+            newElement = newElement + element[x]
         #Capital letters
         if ord(element[x]) >= 65 and ord(element[x]) <= 90:
             newElement = newElement + element[x]
@@ -22,7 +25,6 @@ def deleteChar(element):
         #Apostrophe and dash
         elif ord(element[x]) == 39 or ord(element[x]) == 45:
             newElement = newElement + element[x]
-     
     return newElement
     
 
