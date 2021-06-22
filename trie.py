@@ -92,6 +92,9 @@ def search(T,element):
         return None
     node = T.root.children
     element = deleteChar(element)
+    if len(element) == 0:
+        print("input characters cannot be searched")
+        return None
     for height in range(0,len(element)):
         #Verify if the linkedList exist.
         if node == None:
