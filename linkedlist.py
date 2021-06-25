@@ -23,7 +23,7 @@ def add(L, element, document):
 #Add a node in the end of the list
 def addFinal(L,element):
     if element == None or L == None: 
-        print("No item, list or document was received")
+        print("No item or list was received")
         return None
     newNode = Node()
     newNode.value = element
