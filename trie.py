@@ -73,7 +73,7 @@ def insert(T,element,document):
     Node.isEndOfWord = True
     #assign the repetition of the word
     if Node.repeat != None: #si la lista No esta vacia se recorre la lista buscando el Nombre del documento actual
-        nodeLista = Node.repeat.head
+        NodeLista = Node.repeat.head
         while NodeLista != None:
             if NodeLista.document == document: #si se encuentra se le suma 1 al campo value
                 NodeLista.value += 1
