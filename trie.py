@@ -80,7 +80,8 @@ def insert(T,element,document):
                 return
             else: NodeLista = NodeLista.nextNode
         linkedlist.add(Node.repeat,1,document) # si no se agrega el documento
-    else: NodeLista = None # si la lista esta vacia solo se le agrega el nombre del documento 
+    else: 
+        NodeLista = None # si la lista esta vacia solo se le agrega el nombre del documento 
         Node.repeat = linkedlist.LinkedList()
         linkedlist.add(Node.repeat,1,document)
     
