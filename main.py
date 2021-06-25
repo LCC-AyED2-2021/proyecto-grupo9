@@ -1,23 +1,22 @@
 import personal_library
 import algo1
-#este codigo lo escribi para poder probar  como funciona 
-"""create Tarda mas de 5 M en ejecutarse con los 
-documentos dados por los profes(cambiar el path)"""
-B=personal_library.create('C:\\your path')
+import pickle
 
+personal_library.create('local_path')
 
 end = False
 while end != True:
-    A=algo1.input_str('ingrese una wor_key  ')
+    print("enter a keyword")
+    A = algo1.input_str("")
     
+    with open('libreria', 'br') as lib:
+        B = pickle.load(lib)
     
-    # ------search tarda menos pero aun no funciona
     personal_library.search(B,A)
     
-    
-    print('ingrese salir si dececea salir')
-    a= algo1.input_str('  Enter to continue   ')
-    if a == 'salir':
+    print('enter *exit* to end')
+    a = algo1.input_str("")
+    if a == 'exit':
         end = True
-print ('end')    
+print ('end')   
     
