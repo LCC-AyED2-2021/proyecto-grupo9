@@ -29,10 +29,10 @@ def addFinal(L,element):
     newNode.value = element
     if L.head == None: 
         L.head = newNode
-	L.end_node = L.head
+        L.end_node = L.head
     else:  
         L.end_node.nextNode = newNode
-	L.end_node=L.end_node.nextNode
+        L.end_node=L.end_node.nextNode
         
 #Length counts how many elements a linkedlist has
 def length (L):
