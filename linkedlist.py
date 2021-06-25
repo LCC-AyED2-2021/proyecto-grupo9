@@ -1,5 +1,6 @@
 class LinkedList:
     head = None
+    end_node = None
 class Node: 
     nextNode = None
     value = None
@@ -20,20 +21,18 @@ def add(L, element, document):
         return L
    
 #Add a node in the end of the list
-def addFinal(L,element,document):
-    if element == None or L == None or document == None: 
+def addFinal(L,element):
+    if element == None or L == None: 
         print("No item, list or document was received")
         return None
     newNode = Node()
     newNode.value = element
-    newNode.document = document
     if L.head == None: 
         L.head = newNode
+	L.end_node = L.head
     else:  
-        Recorrido = L.head
-        while Recorrido.nextNode != None:
-            Recorrido = Recorrido.nextNode
-        Recorrido.nextNode = newNode
+        L.end_node.nextNode = newNode
+	L.end_node=L.end_node.nextNode
         
 #Length counts how many elements a linkedlist has
 def length (L):
